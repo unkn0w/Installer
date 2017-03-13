@@ -372,7 +372,7 @@ chmod 755 /etc/bind/rndc.key
 chmod -R 777 /var/zpanel/logs/bind/bind.log
 chmod -R 777 /etc/zpanel/configs/bind/etc
 rm -rf /etc/bind/named.conf /etc/bind/rndc.conf /etc/bind/rndc.key
-rndc-confgen -a
+rndc-confgen -a -r /dev/urandom
 ln -s /etc/zpanel/configs/bind/named.conf /etc/bind/named.conf
 ln -s /etc/zpanel/configs/bind/rndc.conf /etc/bind/rndc.conf
 if ! grep -q "include \"/etc/zpanel/configs/bind/etc/log.conf\";" /etc/bind/named.conf; then echo "include \"/etc/zpanel/configs/bind/etc/log.conf\";" >> /etc/bind/named.conf; fi
